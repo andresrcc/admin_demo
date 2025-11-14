@@ -7,13 +7,15 @@ Sample django app with a [template override](https://docs.djangoproject.com/en/5
 ```bash
 
 # install dependencies
+python3 -m venv .venv  
+source .venv/bin/activate
 pip install -r requirements.txt
 
 # Run setup
-python setup.py
+python3 setup.py
 
 # Start server
-python manage.py runserver --settings=mysite.settings
+python3 manage.py runserver --settings=mysite.settings
 ```
 
 ## Access
