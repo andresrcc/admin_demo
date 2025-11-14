@@ -20,6 +20,12 @@ def main():
     # Get the Python executable
     python = sys.executable
     
+    # Make migrations
+    run_command(
+        f"{python} manage.py makemigrations --settings=mysite.settings",
+        "Creating migrations"
+    )
+    
     # Run migrations
     run_command(
         f"{python} manage.py migrate --settings=mysite.settings",
