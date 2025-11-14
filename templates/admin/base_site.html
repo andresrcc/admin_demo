@@ -1,0 +1,70 @@
+{% extends "admin/base.html" %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+    #sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 220px;
+        height: 100vh;
+        background: #2c3e50;
+        padding: 20px 0;
+        z-index: 1000;
+    }
+    #sidebar h2 {
+        color: #ecf0f1;
+        padding: 0 20px;
+        margin: 0 0 20px 0;
+        font-size: 18px;
+    }
+    #sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    #sidebar li a {
+        display: block;
+        color: #bdc3c7;
+        padding: 10px 20px;
+        text-decoration: none;
+        transition: background 0.2s;
+    }
+    #sidebar li a:hover {
+        background: #34495e;
+        color: #fff;
+    }
+    #sidebar li a::before {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 16px;
+    }
+    .icon-home::before { content: '🏠'; }
+    .icon-publish::before { content: '📤'; }
+    .icon-republish::before { content: '🔄'; }
+    .icon-export::before { content: '📦'; }
+    .icon-import::before { content: '📥'; }
+    .icon-order::before { content: '📋'; }
+    .icon-category::before { content: '📁'; }
+    #content-main, #header, .breadcrumbs {
+        margin-left: 240px;
+    }
+</style>
+{% endblock %}
+
+{% block branding %}
+<div id="sidebar">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="{% url 'admin:index' %}" class="icon-home">Inicio</a></li>
+        <li><a href="#" class="icon-publish">Daily Publish</a></li>
+        <li><a href="#" class="icon-republish">Re-publish Updated</a></li>
+        <li><a href="#" class="icon-export">Misc. Export</a></li>
+        <li><a href="#" class="icon-import">Import Tool</a></li>
+        <li><a href="#" class="icon-order">Article Order</a></li>
+        <li><a href="#" class="icon-category">Category List</a></li>
+    </ul>
+</div>
+{{ block.super }}
+{% endblock %}
