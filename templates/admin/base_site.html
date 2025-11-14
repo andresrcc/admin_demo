@@ -3,6 +3,7 @@
 {% block extrastyle %}
 {{ block.super }}
 <style>
+    {% if user.is_authenticated %}
     #sidebar {
         position: fixed;
         left: 0;
@@ -53,10 +54,12 @@
     #container {
         margin-left: 0 !important;
     }
+    {% endif %}
 </style>
 {% endblock %}
 
 {% block branding %}
+{% if user.is_authenticated %}
 <div id="sidebar">
     <h2>Menu</h2>
     <ul>
@@ -69,5 +72,6 @@
         <li><a href="#" class="icon-category">Category List</a></li>
     </ul>
 </div>
+{% endif %}
 {{ block.super }}
 {% endblock %}
